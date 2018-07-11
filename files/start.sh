@@ -17,8 +17,5 @@ else
 
 	darkhttpd /data --port 6888 &
 	aria2c --conf-path=/conf/aria2.conf
-	
-	if  [ $OPTS ] ;then
-		/proxy ${OPTS}
-	fi
+
 fi
