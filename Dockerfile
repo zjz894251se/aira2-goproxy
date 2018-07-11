@@ -3,10 +3,12 @@ MAINTAINER zjz894251se <zjz894251se@qq.com>
 ARG GOPROXY_VERSION=master
 RUN apk update && \
 	apk upgrade && \
+	apk add --no-cache --update bash && \
+	apk add --no-cache --update aria2 && \
+	apk add git && \
 	mkdir -p /conf && \
 	mkdir -p /conf-copy && \
 	mkdir -p /data && \
-	apk add --no-cache --update bash git aria2&& \
 	cd /go/src/ && \
 	git clone https://github.com/snail007/goproxy && \
 	cd goproxy && \
