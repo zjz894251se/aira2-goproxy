@@ -18,6 +18,11 @@ RUN	mkdir -p /conf && \
 	apk del git && \
 	apk add --update darkhttpd
 	
+ADD files/start.sh /conf-copy/start.sh
+ADD files/aria2.conf /conf-copy/aria2.conf
+ADD files/on-complete.sh /conf-copy/on-complete.sh
+
+FROM alpine:3.7
 COPY --from=builder /go/src/goproxy/proxy /
 
 #RUN apk update && \
@@ -33,9 +38,7 @@ COPY --from=builder /go/src/goproxy/proxy /
 #    apk del git && \
 #	apk add --update darkhttpd
 
-ADD files/start.sh /conf-copy/start.sh
-ADD files/aria2.conf /conf-copy/aria2.conf
-ADD files/on-complete.sh /conf-copy/on-complete.sh
+
 
 RUN chmod +x /conf-copy/start.sh
 
