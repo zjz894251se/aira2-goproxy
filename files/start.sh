@@ -15,8 +15,7 @@ else
 	chmod +x /conf/on-complete.sh
 	touch /conf/aria2.session
 
-	darkhttpd /aria2-webui --port 80 &
-	darkhttpd /data --port 8080 &
+	darkhttpd /data --port 6888 &
 	aria2c --conf-path=/conf/aria2.conf
 	
 	if  [ $OPTS ] ;then
